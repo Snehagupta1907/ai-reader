@@ -150,7 +150,7 @@ async function addIdsAndCuesToJson(inputJson: any): Promise<any> {
 
 export async function POST(req: NextRequest) {
   // Fallback sample array
-  const sampleScript = {
+ const sampleScript = {
     lines: [
       {
         id: 1,
@@ -183,10 +183,58 @@ export async function POST(req: NextRequest) {
         dialog: "I hate hospitals. Really hate them.",
         emotion: "nervous",
         cue: "them"
+      },
+      {
+        id: 5,
+        character: "DR. LARA",
+        action: "enters the room, glancing at the chart",
+        dialog: "And yet here you are, breaking chairs like it's a sport.",
+        emotion: "wry",
+        cue: "sport"
+      },
+      {
+        id: 6,
+        character: "MR. RODRIGUEZ",
+        action: "",
+        dialog: "I swear it slipped. Not my fault this time.",
+        emotion: "defensive",
+        cue: "time"
+      },
+      {
+        id: 7,
+        character: "PEN",
+        action: "raises an eyebrow at GABE",
+        dialog: "That sounds oddly familiar.",
+        emotion: "dry",
+        cue: "familiar"
+      },
+      {
+        id: 8,
+        character: "GABE",
+        action: "shrugs",
+        dialog: "It’s the chairs, man. They're out to get us.",
+        emotion: "mock-serious",
+        cue: "us"
+      },
+      {
+        id: 9,
+        character: "DR. LARA",
+        action: "smirks, checking vitals",
+        dialog: "Next time, aim for a beanbag. Much safer.",
+        emotion: "teasing",
+        cue: "safer"
+      },
+      {
+        id: 10,
+        character: "MR. RODRIGUEZ",
+        action: "",
+        dialog: "Noted. Will avoid furniture with legs.",
+        emotion: "resigned",
+        cue: "legs"
       }
-      // ...add more lines as needed
     ]
   };
+  
 
   try {
     // 1. Read PDF buffer from request
