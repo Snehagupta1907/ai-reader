@@ -3,11 +3,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { OpenAI } from "openai";
 // import PDFParser from 'pdf2json';
-import path from "path";
+// import path from "path";
 import fs from "fs/promises";
-import os from "os";
-// @ts-expect-error: No types for pdf-poppler
-import pdfPoppler from "pdf-poppler";
+// import os from "os";
+// import pdfPoppler from "pdf-poppler";
 import { Buffer } from "buffer";
 
 
@@ -23,31 +22,31 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 
 // Helper: Convert PDF buffer to images (one per page)
-async function pdfBufferToImages(buffer: Buffer): Promise<string[]> {
-  const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "pdf-"));
-  console.log("tempDir", tempDir);
-  const pdfPath = path.join(tempDir, "input.pdf");
-  await fs.writeFile(pdfPath, buffer);
-  const fileName = "/Users/snehagupta/Desktop/ai-reader/client/TECHNICIAN.pdf";
+// async function pdfBufferToImages(buffer: Buffer): Promise<string[]> {
+//   const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "pdf-"));
+//   console.log("tempDir", tempDir);
+//   const pdfPath = path.join(tempDir, "input.pdf");
+//   await fs.writeFile(pdfPath, buffer);
+//   const fileName = "/Users/snehagupta/Desktop/ai-reader/client/TECHNICIAN.pdf";
 
-  const options = {
-    format: "png",
-    out_dir: path.dirname(fileName),
-    out_prefix: "page",
-    page: null, // all pages
-    scale: 2.0,
-  };
-  console.log(options);
-  console.log(pdfPath);
-  await pdfPoppler.convert(pdfPath, options);
+//   const options = {
+//     format: "png",
+//     out_dir: path.dirname(fileName),
+//     out_prefix: "page",
+//     page: null, // all pages
+//     scale: 2.0,
+//   };
+//   console.log(options);
+//   console.log(pdfPath);
+//   await pdfPoppler.convert(pdfPath, options);
 
-  const files = await fs.readdir(tempDir);
-  const imagePaths = files
-    .filter((f) => f.endsWith(".png"))
-    .map((f) => path.join(tempDir, f));
-  console.log(imagePaths);
-  return imagePaths;
-}
+//   const files = await fs.readdir(tempDir);
+//   const imagePaths = files
+//     .filter((f) => f.endsWith(".png"))
+//     .map((f) => path.join(tempDir, f));
+//   console.log(imagePaths);
+//   return imagePaths;
+// }
 
 // async function pdfBufferToImages2(buffer: Buffer): Promise<string[]> {
 //   const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "pdf-to-img-"));
