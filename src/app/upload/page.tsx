@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import dynamic from "next/dynamic";
@@ -10,7 +11,7 @@ const PdfPreview = dynamic(() => import("./PdfPreview"), { ssr: false });
 
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
-  const [numPages, setNumPages] = useState<number>(0);
+  // const [numPages, setNumPages] = useState<number>(0);
   const [lines, setLines] = useState<any[]>([]);
   const [characters, setCharacters] = useState<string[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<string | null>(null);

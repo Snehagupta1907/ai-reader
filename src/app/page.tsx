@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Clock, Mic, Ear } from "lucide-react";
 
 // Color palette based on mascot image
